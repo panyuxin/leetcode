@@ -49,7 +49,28 @@
  * @return {number}
  */
 var climbStairs = function(n) {
+    if (n === 0) {
+        return 0;
+    }
+
+    if (n === 1) {
+        return 1;
+    }
+    if (n === 2) {
+        return 2;
+    }
     
+    let prepre = 1;
+    let pre = 2;
+    let cur = 0;
+
+    for (let i = 2; i < n; i++) {
+        cur = pre + prepre;
+        prepre = pre;
+        pre = cur;
+    }
+
+    return cur;
 };
 // @lc code=end
 
